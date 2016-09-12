@@ -1,16 +1,13 @@
 ---
-title: Bitmap 的加载 和 Cache
+title: Arts-Development-of-Android-12
 toc: true
-date: 2016-05-21 20:56:39
-tags: android
-categories: About Java
+tags: Android 
+categories: 读书笔记
 description:
 feature:
 ---
 
-Android 开发艺术探索-Bitmap 的加载 和 Cache
-
-扩展阅读[ASimpleCache 缓存框架](https://github.com/yangfuhai/ASimpleCache)
+本章介绍 Bitmap 的加载优化以及 Cache 相关内容。
 
 <!--more-->
 
@@ -31,7 +28,7 @@ BitMapFactory 提供了四类方法: decodeFile,decodeResource,decodeStream 和 
 
 代码实现如下:
 
-``` java
+```java
 public Bitmap decodeSampledBitmapFromResource(Resources res, int resId, int reqWidth, int reqHeight) {
     // First decode with inJustDecodeBounds=true to check dimensions
     final BitmapFactory.Options options = new BitmapFactory.Options();
@@ -77,7 +74,7 @@ public int calculateInSampleSize(BitmapFactory.Options options, int reqWidth, in
 
 实际使用就可以像下面这样了,如加载 100*100 的图片大小,就可以像下面这样高效的加载图片了:
 
-``` java
+```java
 mImageView.setImageBitmap(
 decodeSampledBitmapFromResource(getResource(),R.id.myimage,100,100));
 ```
@@ -92,9 +89,9 @@ decodeSampledBitmapFromResource(getResource(),R.id.myimage,100,100));
 
 LruCache 是一个泛型类，其内部实现机制是 LinkedHashMap 以**强引用**的方式存储外部的缓存对象，提供了 get() 和 put() 来完成缓存对象的存取。当缓存满了,移除较早的缓存对象,再添加新的。LruCache 是线程安全的。
 
-* 强引用:直接的对象引用
-* 软引用:当一个对象只有软引用时,系统内存不足时,会被 gc 回收
-* 弱引用:当一个对象只有弱引用时,随时会被回收
+- 强引用:直接的对象引用
+- 软引用:当一个对象只有软引用时,系统内存不足时,会被 gc 回收
+- 弱引用:当一个对象只有弱引用时,随时会被回收
 
 ### 2.2 DiskLriCache
 
@@ -104,13 +101,13 @@ DiskLruCache 用于实现存储设备缓存,即磁盘缓存。
 
 由于它不属于 Android SDK的一部分,所以不能通过构造方法来创建,提供了 open() 方法用于自身的创建
 
-``` java
+```java
 public static DiskLruCache open(File directory,int appversion,int valueCount,long maxSize);
 ```
 
 典型的 DiskLruCache 的创建过程
 
-``` java
+```java
 private static final Disk_CACHE_SIZE = 1024*1024*50;//50M
 
 File diskCaCheDir = getDiskCacheDir(mContext,"bitmap");
@@ -129,7 +126,7 @@ mDiskLruCache = DiskLruCache.open(diskCaCheDir,1,1,Disk_CACHE_SIZE);
 
 缓存查找过程也需要将 url 转换为 key,通过 DiskLruCache 的 get() 得到一个 Snapshot 对象,然后通过该对象即可得到缓存的文件输入流,得到文件输入流即可得到 Bitmap 对象了。为了避免加载过程中 OOM,一般不会直接加载原始图片。在前面介绍通过 BitmapFactory.Options 来加载一张缩放后的图片,但是那种方法对 FileInputStream 的缩放存在问题,原因是 FileInputStream 是一种有序的文件流,而两次 decodeStream 调用影响了文件流的位置属性,导致了第二次 decodeStream 时得到的是 null。为了解决这个问题,可以通过**文件流得到其对应的文件描述符**,然后通过 BitmapFactory.decodeFileDescriptor 方法来加载一张缩放过后的图片。
 
-``` java
+```java
  Bitmap bitmap = null;
  String key = hashKeyFormUrl(url);
  DiskLruCache.Snapshot snapShot = mDiskLruCache.get(key);
@@ -171,11 +168,11 @@ mDiskLruCache = DiskLruCache.open(diskCaCheDir,1,1,Disk_CACHE_SIZE);
 
 **ImageLoader源码可以看[ImageLoader的实现](https://github.com/singwhatiwanna/android-art-res/blob/master/Chapter_12/src/com/ryg/chapter_12/loader/ImageLoader.java)**
 
-##  四 . ImageLoader 的使用
+## 四 . ImageLoader 的使用
 
 核心是 ImageAdapter , 其中的 getView() 的核心方法如下:
 
-``` java
+```java
 @Override
 public View getView(int position, View convertView, ViewGroup parent) {
          ViewHolder holder = null;
@@ -200,7 +197,6 @@ public View getView(int position, View convertView, ViewGroup parent) {
             }
             return convertView;
         }
-
 ```
 
 对于上述代码 ImageAdapter 来说, ImageLoader 的加载图片的复杂过程，更不需要知道。
