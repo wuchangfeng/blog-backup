@@ -1,8 +1,6 @@
-### 题目：讲一个链表从尾部到头输出
+### 题目：将一个链表从尾部到头输出
 
 A。采用非递归方式来输出。很容易想到用栈来实现。
-
-
 
 ```java
 public static void printNode2(Node root){
