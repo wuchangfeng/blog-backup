@@ -1,5 +1,5 @@
 ---
-title: Java 中的泛型
+title: 深入理解 Java 中的泛型
 date: 2015-12-13 09:21:55
 tags: java
 categories: About Java
@@ -11,11 +11,11 @@ categories: About Java
 
 <!-- more -->
 
-### 一 . 为什么需要泛型
+### 一 . 泛型引入
 
-集合的缺点就是把元素扔进 集合之后，集合就会忘记这个对象的数据类型，当再次取出该对象时，该对象的编译类型就变成了 Object 类型(运行时类型没有变)，使用泛型会使程序更加健壮，更简洁。
+集合的缺点就是把元素扔进 集合之后，集合就会忘记这个对象的数据类型，当再次取出该对象时，该对象的编译类型就变成了 Object 类型(运行时类型没有变)，而这样的话，我们再次从集合中取出，就需要进行强制类型转换。带来的问题是不仅使代码臃肿而且容易带来 ClassCastException 异常。
 
-Java 泛型的设计原则就是，只要代码在编译时没有出现警告，就不会在运行时出现 ClassCastException异常。
+Java 泛型的设计原则就是，只要代码在**编译时**没有出现警告，就不会在运行时出现 ClassCastException异常。
 
 ### 二 . 泛型语法
 
@@ -95,6 +95,7 @@ List<String> list = new ArrayList<>();
 public class AppleClassTest<T> {
     private T info;
     public AppleClassTest(){}
+  	// 注意这里的构造器，并没有变化
     public AppleClassTest(T info){
         this.info = info;
     }
@@ -123,7 +124,7 @@ public static void main(String args[]){
 
 *  并不存在泛型类
 
-有一种错觉，ArrayList<String> 是 ArrayList 的子类，确实很像，但是系统并没有为 ArrayList<String> 生成新的 class 文件，也不会将 ArrayList<String> 当成新类来处理。
+有一种错觉，ArrayList<String> 是 ArrayList<Object> 的子类，确实很像，但是系统并没有为 ArrayList<String> 生成新的 class 文件，也不会将 ArrayList<String> 当成新类来处理。不要自认为 String 是 Object 的子类，那么前面的情况就会成立。
 
 crzay java 上面有一个这样的程序：
 
@@ -166,7 +167,7 @@ public class GenericClassTest {
 
 ### 四 . 类型通配符
 
-需要定义一个方法，方法里有一个集合形参，集合形参里面的元素又是不确定的。开始自然想到的是使用 Object 来代替形参类型，但是所带来的问题很多。
+需要定义一个方法，方法里有一个集合形参，集合形参里面的元素又是不确定的。开始自然想到的是使用 Object [即上面的做法]来代替形参类型，但是所带来的问题很多。
 
 因此我们会采用类型通配符来替代：
 
@@ -204,6 +205,18 @@ public static void main(String args[]){
     }
 }
 ```
+
+上述这种带通配符(?)的 list 仅表示它是各种泛型 List 的父类，并不能将元素加入其中，如下实例就会引起错误：
+
+``` java
+List<?> c = new ArrayList<String> ();
+c.add(new Object);// 会引起编译错误
+```
+
+因为程序无法确定 **c 集合中**数据的类型，所以不能向其中添加对象。
+
+
+
 
 
 ### 五 . 设定类型通配符上限
@@ -382,7 +395,7 @@ public class MyUtils {
      }
 }
 ```
-	
+
 ### 十 . 擦除和转换
 
 当把一个具有泛型信息的变量赋值给一个没有泛型信息的变量时，所有尖括号之间的信息都将被扔掉。实例程序示范了这种擦除：

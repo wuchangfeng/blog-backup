@@ -1,0 +1,173 @@
+---
+title: Java 虚拟机入门之类的加载机制
+toc: true
+date: 2016-05-17 22:08:31
+tags: java
+categories: About Java
+description:
+feature:
+---
+
+Java 中类的加载机制的一些学习笔记。
+
+<!--more-->
+
+## 一 . 类的加载，连接和初始化
+
+* JVM 和 类
+
+启动一个 java 程序，将会启动一个 java 虚拟机进程，不管程序多么复杂，启动了多少个线程，都处于该虚拟机进程里面，都会使用该虚拟机进程的内存区。
+
+* 类的加载
+
+类的加载是指将类的 class 文件读入内存，并为之创建一个 java.lang.Class 对象，即程序中使用任何类，系统都会为之建立一个 java.lang.Class 对象。这个过程由类加载器完成。类加载器可以从不同来源来加载 class 文件。
+
+类的加载由类的加载器完成，通常由 jvm 提供。
+
+使用不同的类加载器，可以从不同来源加载类的二进制数据，通常来源：
+
+1. 从本地文件系统中加载 class 文件，这个 class 文件是是什么文件？编译过后的？
+2. 从 JAR 包加载 class 文件
+3. 通过网络加载 class 文件
+4. 把一个java源文件动态编译，并执行加载
+
+类的加载并不需要等到 "首次使用" 该类时，才加载该类，JVM 可以允许预先加载某些类。
+
+* 类的连接
+
+类被加载之后，将会生成一个对应的 Class 对象，接着将会进入链接阶段，类的加载阶段负责把类的二进制数据合并到 JRE 中。类的连接又分为以下几个阶段：
+
+1. 验证：验证阶段用于检验被加载的类是否有正确的内部结构，并和其他类协调一致。
+2. 准备：负责为类的类变量分配内存，并设置默认初始值
+3. 解析：将类的二进制数据中的符号引用替换成直接引用。
+
+* 类的初始化
+
+类的初始化阶段，虚拟机负责，主要就是类变量。java 当中对类变量指定初始值方式有两种：
+
+1. 声明变量时指定初始值
+2. 使用**静态初始化块**为类变量指定初始值
+
+JVM 初始化一个类包含以下步骤：
+
+1. 若未加载和链接，则先加载并连接
+2. 若该类的直接父类还没有被初始化，则先初始化其父类
+3. 加入类中有初始化语句，先执行初始化语句
+
+* 类的初始化时机
+
+当 java 程序首次通过下面6种方式来使用某个类和接口时，系统就会初始化该类和接口：
+
+1.创建类的实例。
+2.调用某个类的类方法。
+3.访问某个类或者接口的类变量，或者为其复制。
+4.**使用反射方式强制创建某个类或者接口**对应的 java.lang.Class 对象。
+
+另外有注意啊： final 型的变量，如果其值在编译时就可以被确定下来，那么这个类变量相当于"宏变量"即常量，java会在编译时直接把这个类变量在出现时替换成它的值，因此即使程序使用该静态变量，也不会导致该类的初始化。
+
+另外还有一种情况，当使用 ClassLoader 类的 loadClass() 方法来加载某个类时，该方法只是加载该类，并不会执行该类的初始化，使用 Class 的 forName() 静态方法才会强制该类初始化。
+
+## 二 . 类加载器
+
+**说一下程序在计算机的过程：** write code ——> .java ——> 编译 ——> .class(字节码文件)-->装载进类加载器(JVM)-->产生 java.lang.Class 对象
+
+而 **java.lang.Class** 就是我们进行反射操作时，所需要的一个对象。
+
+* 类的加载器简介
+
+类加载器负责将.class文件(磁盘或者内存上)加载到内存中，并为之生成对应的 java.lang.class 对象。通过类的权限定名获取该类的二进制字节流的代码块叫做类加载器。
+主要有一下四种类加载器:
+
+1. 启动类加载器(Bootstrap ClassLoader)用来加载java核心类库，无法被java程序直接引用。
+2. 扩展类加载器(extensions class loader):它用来加载 Java 的扩展库。Java 虚拟机的实现会提供一个扩展库目录。该类加载器在此目录里面查找并加载 Java 类。
+3. 系统类加载器（system class loader）：它根据 Java 应用的类路径（CLASSPATH）来加载 Java 类。一般来说，Java 应用的类都是由它来完成加载的。可以通过 ClassLoader.getSystemClassLoader()来获取它。
+
+
+
+
+* 类加载机制
+
+1. 全盘负责，当一个类加载器负责加载某个 Class 时，该 Class 所依赖和引用的其他 Class 也由该类加载器负责载入，除非显示的调用另外一个加载器来载入。
+2. 父类委托，先让父类加载器负责加载该 CLass，父类无法加载，则自己加载。
+3. 缓存机制，所有加载过的 Class 都会被缓存，当程序需要使用某个 Class 时，类加载器先从缓存区搜徐该 Class，只有当不存在时，系统才会读取该类对应的二进制数据，并将其转换为 Class 对象，存入缓存区，这就是为什么修改了 Class 后，必须要重新启动 JVM，程序所做的修改才会生效的原因。
+
+**如何判断两个 Class 相同**
+
+JVM 在判定两个 class 是否相同时，不仅要判断两个类名是否相同，而且要判断是否由同一个类加载器实例加载的。只有两者同时满足的情况下，JVM 才认为这两个 class 是相同的。
+
+## 三 . Classloader 类加载的原理
+
+ClassLoader 使用的是双亲委托模型来搜索类的，每个 ClassLoader 实例都有一个父类加载器的引用（不是继承的关系，是一个包含的关系），虚拟机内置的类加载器（Bootstrap ClassLoader）本身没有父类加载器，但可以用作其它 ClassLoader 实例的的父类加载器。当一个ClassLoader实例需要加载某个类时，它会试图亲自搜索某个类之前，先把这个任务委托给它的父类加载器，这个过程是由上至下依次检查的，首先由最顶层的类加载器 Bootstrap ClassLoader试图加载，如果没加载到，则把任务转交给Extension ClassLoader 试图加载，如果也没加载到，则转交给App ClassLoader 进行加载，如果它也没有加载得到的话，则返回给委托的发起者，由它到指定的文件系统或网络等URL中加载该类。如果它们都没有加载到这个类时，则抛出 ClassNotFoundException 异常。否则将这个找到的类生成一个类的定义，并将它加载到内存当中，最后返回这个类在内存中的 Class 实例对象。
+
+**为什么要使用双亲委托模型**
+
+因为这样可以避免重复加载，当父亲已经加载了该类的时候，就没有必要子 ClassLoader 再加载一次。考虑到安全因素，我们试想一下，如果不使用这种委托模式，那我们就可以随时使用自定义的 String 来动态替代 java 核心 api 中定义的类型，这样会存在非常大的安全隐患，而双亲委托的方式，就可以避免这种情况，因为 String 已经在启动时就被引导类加载器（Bootstrcp ClassLoader）加载，所以用户自定义的 ClassLoader 永远也无法加载一个自己写的 String，除非你改变 JDK 中 ClassLoader 搜索类的默认算法
+
+
+## 四 . 自定义类加载器
+
+JVM 中除根类加载器之外的所有类加载器都是 ClassLoader 子类的实例。开发者可以通过扩展 ClassLoader 子类，并重写其包含的方法来实现自定义的类加载器。
+
+ClassLoader 的关键方法：
+
+1. loadClass(String name,boolean resolve):根据指定名称来加载类
+2. findClass(String name):根据指定名称来查找类
+
+ClassLOader 类加载顺序
+
+1. 调用findLoadedClass(String) 来检查是否已经加载类
+
+2. 在父类加载器上调用loadClass方法。如果父亲不能加载，一次一级一级传给子类
+
+3. 调用子类findClass(String) 方法查找类。若还加载不了就返回ClassNotFoundException，不交给发起请求的加载器的子加载器
+
+实现的功能就是可以替代系统的编译工程，自己来编译该 java 源文件。
+
+更进一步还有以下功能可以扩展：
+
+1. 执行代码前自动执行数字验证
+2. 根据用户需求来动态加载类
+3. 根据应用需求把其他数据以字节码的形式加载到应用中
+4. 根据用户提供的密码解密代码，从而可以实现混淆编译 *.class 文件
+
+## 五 . URLClassLoader 类
+
+Java 为 ClassLoader 提供了一个 URLCLassLoader 实现类，该类也是系统类加载器和扩展类加载器的父类。URLClassLoader 可从本地系统获取二进制文件，也可以从远程主机获取二进制文件来加载类。
+
+一旦获得 URLClassLoader 对象之后，就可以调用该对象的 loadClass() 方法来指定加载类。下面程序示范了如何直接通过文件系统加载 MYSQL 驱动，并使用该驱动来获取数据库连接。通过这种方式来获取数据库连接，可以无需将 MYSQL 驱动添加到环境变量中。
+
+``` java
+public class URLClassLoaderTest
+{
+	private static Connection conn;
+	//定义一个获取数据库连接方法
+	public static Connection getConn(String url , 
+		String user , String pass) throws Exception
+	{
+		if (conn == null)
+		{
+			// 创建一个URL数组
+			URL[] urls = {new URL(
+				"file:mysql-connector-java-3.1.10-bin.jar")};
+			// 以默认的ClassLoader作为父ClassLoader，创建URLClassLoader
+			URLClassLoader myClassLoader = new URLClassLoader(urls);
+			// 加载MySQL的JDBC驱动，并创建默认实例
+			Driver driver = (Driver)myClassLoader.
+				loadClass("com.mysql.jdbc.Driver").newInstance();
+			// 创建一个设置JDBC连接属性的Properties对象
+			Properties props = new Properties();
+			// 至少需要为该对象传入user和password两个属性
+			props.setProperty("user" , user);
+			props.setProperty("password" , pass);
+			// 调用Driver对象的connect方法来取得数据库连接
+			conn = driver.connect(url , props);
+		}
+		return conn;
+	}
+	public static void main(String[] args)throws Exception
+	{
+		System.out.println(getConn("jdbc:mysql://localhost:3306/mysql"
+			, "root" , "32147"));
+	}
+}
+```
