@@ -1,4 +1,8 @@
-### 读书笔记
+### 
+
+### 零. Notes for Effective Java
+
+读 Effective Java 的笔记(阅读中)
 
 ### 一. Notes for Algortihms
 
