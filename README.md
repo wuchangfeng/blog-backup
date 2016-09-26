@@ -171,3 +171,24 @@
 - [Python 脚本来卸载 AS 中的 App](https://github.com/wuchangfeng/Uninstall-App-Automatically)
 - [Python 脚本简化 MarkDown 写作](https://github.com/wuchangfeng/MarkDownHelper)
 
+
+## Notes for JVM
+
+* JVM 内存分区与内存溢出异常
+  * 对象的创建
+  * 内存**溢出**
+    * Java 堆溢出
+    * 虚拟机栈和本地方法栈溢出
+    * 方法区和运行时常量池溢出
+    * 本机直接内存溢出
+* 垃圾回收算法
+* 类加载机制
+  * 类加载时机
+  * 类加载过程
+  * 类加载器
+* 类文件结构
+* Java 内存模型与线程
+* Java 语法糖
+  * 泛型与类型擦除
+  * 自动拆箱与装箱与遍历循环
+  * 条件编译
