@@ -1,10 +1,10 @@
 ### 
 
-### 零. Notes for Effective Java
+## 零. Notes for Effective Java
 
 读 Effective Java 的笔记(阅读中)
 
-### 一. Notes for Algortihms
+## 一. Notes for Algortihms
 
 - [单例模式的七中写法-16/9/9](https://github.com/wuchangfeng/BlogRes/blob/master/Notes%20for%20Algortihms/algorithm-for-offer24.md)
 - [链表的反转-16/8/13](https://github.com/wuchangfeng/BlogRes/blob/master/Notes%20for%20Algortihms/algorithm-for-offer1.md) 
@@ -53,11 +53,11 @@
 - [圆圈中最后剩下的数字(约瑟夫环问题-动态规划问题)-16/9/5](https://github.com/wuchangfeng/BlogRes/blob/master/Notes%20for%20Algortihms/algorithm-for-offer21.md)
 - [寻找和为定值的两个数](http://taop.marchtea.com/02.02.html)
 
-### 二. Notes for Android Heros
+## 二. Notes for Android Heros
 
 读 Android 群英传的部分笔记
 
-### 三. Notes for Arts of Android Dev
+## 三. Notes for Arts of Android Dev
 
 - [Arts-Development-of-Android-3-1](https://github.com/wuchangfeng/BlogRes/blob/master/Notes%20for%20Arts%20of%20Android%20Dev/Arts-Development-of-Android-3-1.md)
 
@@ -91,7 +91,7 @@
 
   本章介绍 Bitmap 的加载优化以及 Cache 相关内容。
 
-### 四. Notes for Design Pattern
+## 四. Notes for Design Pattern
 
 - [面向接口编程以及策略模式](https://github.com/wuchangfeng/BlogRes/blob/master/Notes%20for%20Design%20pattern/Head-first-design-pattern-1.md)
 
@@ -143,15 +143,24 @@
 
   这里要思考为什么 Builder 要设计成静态的？使用 static 就如同你新建了一个 JAVA 文件，静态内部类不会保持对外部类的引用。如果你的 Builder 需要外部类的引用，那它 Build 就没有意义了，所以必须加 static。
 
-### 五. Notes for Java Se
+## 五. Notes for Java Se
 
-复习 Java 基础所做的一些笔记
+* [Java 集合框架](https://github.com/wuchangfeng/BlogRes/blob/master/Notes%20for%20Java%20se/Java-se1.md)
+* [Java 多线程-重点](https://github.com/wuchangfeng/BlogRes/blob/master/Notes%20for%20Java%20se/Java-se2.md)
+* [Java 泛型深入](https://github.com/wuchangfeng/BlogRes/blob/master/Notes%20for%20Java%20se/Java-se3.md)
+* [Java NIO 的学习-未深入](https://github.com/wuchangfeng/BlogRes/blob/master/Notes%20for%20Java%20se/Java-se7.md)
+* [Java 注解](https://github.com/wuchangfeng/BlogRes/blob/master/Notes%20for%20Java%20se/java-annotation.md)
 
-### 六. Notes for Linux C
+## 六. Notes for Linux C
 
-上 Linux c 课程所做的一些笔记
+* [进程间通信-利用管道实现双端通信](https://github.com/wuchangfeng/BlogRes/blob/master/Notes%20for%20Linux%20c/linux-c-1.md)
+* [进程间通信-利用消息队列来实现](https://github.com/wuchangfeng/BlogRes/blob/master/Notes%20for%20Linux%20c/linux-c-5.md)
+* [进程间通信-利用信号量机制实现](https://github.com/wuchangfeng/BlogRes/blob/master/Notes%20for%20Linux%20c/linux-c-6.md)
+* [Linux 异步信号处理机制](https://github.com/wuchangfeng/BlogRes/blob/master/Notes%20for%20Linux%20c/linux-c-2.md)
+* [Linux 进程管理与程序开发](https://github.com/wuchangfeng/BlogRes/blob/master/Notes%20for%20Linux%20c/linux-c-3.md)
+* [匿名管道和重定向编程](https://github.com/wuchangfeng/BlogRes/blob/master/Notes%20for%20Linux%20c/linux-c-4.md)
 
-### 七. Notes for Python 
+## 七. Notes for Python
 
 - [Python 抓取落网音乐](https://github.com/wuchangfeng/Crawler/blob/master/ReadMe-Luowang.MD)
 - [Python 爬取 One 内容存至 LeanCloud](https://github.com/wuchangfeng/Crawler/blob/master/ReadMe-One.md)
@@ -162,4 +171,3 @@
 - [Python 脚本来卸载 AS 中的 App](https://github.com/wuchangfeng/Uninstall-App-Automatically)
 - [Python 脚本简化 MarkDown 写作](https://github.com/wuchangfeng/MarkDownHelper)
 
- 
