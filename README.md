@@ -172,7 +172,7 @@
 - [Python 脚本简化 MarkDown 写作](https://github.com/wuchangfeng/MarkDownHelper)
 
 
-## Notes for JVM
+## 八. Notes for JVM
 
 * JVM 内存分区与内存溢出异常
   * 对象的创建
@@ -192,3 +192,8 @@
   * 泛型与类型擦除
   * 自动拆箱与装箱与遍历循环
   * 条件编译
+
+## 九. Links for Android Resource
+
+* EventBus3.0 框架源码解析
+* Glide 框架源码解析
