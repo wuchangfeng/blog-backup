@@ -37,7 +37,7 @@
 - [二叉树的深度[递归解法]-16/9/2](https://github.com/wuchangfeng/BlogRes/blob/master/Notes%20for%20Algortihms/algorithm-for-offer18.md)
 - 链表中环的入口节点
 - 删除二叉树中重复的节点
-- 扑克牌的顺子
+- [扑克牌的顺子-16/9/27](https://github.com/wuchangfeng/BlogRes/blob/master/Notes%20for%20Algortihms/algorithm-for-offer32.md)
 - 树中两个节点的最低公共祖先
 - [判断是否为平衡二叉树-解法一16/9/3](https://github.com/wuchangfeng/BlogRes/blob/master/Notes%20for%20Algortihms/algorithm-for-offer19.md)
 - 判断是否为平衡二叉树-解法二
