@@ -108,13 +108,18 @@
 
 - [设计模式之工厂模式](https://github.com/wuchangfeng/BlogRes/blob/master/Notes%20for%20Design%20pattern/Head-first-design-pattern-4.md)
 
-  **工厂模式以及其引申出来的还是需要好好理解啊**
+  * 引入的初衷就是为了简化对象的生成。
+  * 工厂方法使用继承，将对象的创建委托给子类，子类实现工厂方法来创建对象。
+  * 抽象工厂使用对象组合，对象的创建被实现在工厂接口所暴露出来的方法中。
+  * 为了让我们实现解耦，针对抽象编程。
 
 - [设计模式之单例模式](https://github.com/wuchangfeng/BlogRes/blob/master/Notes%20for%20Design%20pattern/Head-first-design-pattern-5.md)
 
   这一节比较重要的就是要思考为什么需要单利模式以及单利模式的种类。感觉还是涉及到了多线程以及多进程的问题。大家对一个对象操作，必须保证该对象给大家的数据都是一致的。
 
 - [设计模式之命令模式](https://github.com/wuchangfeng/BlogRes/blob/master/Notes%20for%20Design%20pattern/Head-first-design-pattern-6.md)
+
+  命令模式感觉还是很好理解的，调用者和被调用者不直接交互。通过命令来交互，解决对象相互之间依赖，实现解耦。如果对这个命令进行持久化，扩充一下有点像消息队列的思想了。
 
 - [设计模式之外观模式和适配器模式](https://github.com/wuchangfeng/BlogRes/blob/master/Notes%20for%20Design%20pattern/Head-first-design-pattern-7.md)
 
@@ -128,6 +133,10 @@
 
 
 - [设计模式之状态模式](https://github.com/wuchangfeng/BlogRes/blob/master/Notes%20for%20Design%20pattern/Head-first-design-pattern-10.md)
+
+  通常性的我们喜欢利用 if... else if... else 或者 switch...case...来进行状态的切换，在状态类型较少或者简单的情况下这样可以达到一些我们想要的目的，但是**一旦状态判断复杂或者增加了新的状态**，这样的判断就显得非常不好了。
+
+  较多情况下**对象往往会根据自身的状态来决定自身表现的行为**，这些**状态都在对象内部定义好了的**。
 
 - [设计模式之代理模式](https://github.com/wuchangfeng/BlogRes/blob/master/Notes%20for%20Design%20pattern/Head-first-design-pattern-11.md)
 
@@ -175,25 +184,47 @@
 ## 八. Notes for JVM
 
 * JVM 内存分区与内存溢出异常
+
+  * 运行时数据区域即内存分区
+    * 程序计数器
+    * Java 虚拟机栈
+    * 本地方法栈
+    * Java 堆
+    * 方法区
+    * 运行时常量池
+    * 直接内存
+
+
   * 对象的创建
   * 内存**溢出**
     * Java 堆溢出
     * 虚拟机栈和本地方法栈溢出
     * 方法区和运行时常量池溢出
     * 本机直接内存溢出
+
 * 垃圾回收算法
+
+  * 垃圾回收的概念
+  * 如何判断对象为垃圾
+  * 垃圾回收算法的实现思想
+  * 如何给对象分配内存
+
 * 类加载机制
   * 类加载时机
   * 类加载过程
   * 类加载器
+
 * 类文件结构
+
 * Java 内存模型与线程
+
 * Java 语法糖
   * 泛型与类型擦除
   * 自动拆箱与装箱与遍历循环
   * 条件编译
 
-## 九. Links for Android Resource
+## 九. Links for Open Source Framework
 
 * EventBus3.0 框架源码解析
 * Glide 框架源码解析
+* Retrofit 框架源码解析
