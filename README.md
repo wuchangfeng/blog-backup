@@ -55,7 +55,10 @@
 
 ## 二. Notes for Android Heros
 
-读 Android 群英传的部分笔记
+* [一个组合控件的诞生](https://github.com/wuchangfeng/BlogRes/blob/master/Notes%20for%20Android%20Heros/Android-Hero-3.md)
+* [ListView 相关解析](https://github.com/wuchangfeng/BlogRes/blob/master/Notes%20for%20Android%20Heros/Android-Hero-4.md)
+* [ Android 中 Scroll 解析](https://github.com/wuchangfeng/BlogRes/blob/master/Notes%20for%20Android%20Heros/Android-Hero-5.md)
+* [ Android 动画机制与使用技巧](https://github.com/wuchangfeng/BlogRes/blob/master/Notes%20for%20Android%20Heros/Android-Hero-5.md)
 
 ## 三. Notes for Arts of Android Dev
 
@@ -159,6 +162,10 @@
 * [Java 泛型深入](https://github.com/wuchangfeng/BlogRes/blob/master/Notes%20for%20Java%20se/Java-se3.md)
 * [Java NIO 的学习-未深入](https://github.com/wuchangfeng/BlogRes/blob/master/Notes%20for%20Java%20se/Java-se7.md)
 * [Java 注解](https://github.com/wuchangfeng/BlogRes/blob/master/Notes%20for%20Java%20se/java-annotation.md)
+* [ ArrayList 的源码解析](https://github.com/wuchangfeng/BlogRes/blob/master/Notes%20for%20Java%20se/java-arraylist.md)
+* [ LinkedList 的源码解析](https://github.com/wuchangfeng/BlogRes/blob/master/Notes%20for%20Java%20se/java-linkedlist.md)
+* [LinkedHashMap 的源码解析](https://github.com/wuchangfeng/BlogRes/blob/master/Notes%20for%20Java%20se/java-linkedhashmap.md)
+* [TreeMap 的源码解析](https://github.com/wuchangfeng/BlogRes/blob/master/Notes%20for%20Java%20se/java-treemap.md)
 
 ## 六. Notes for Linux C
 
@@ -183,7 +190,7 @@
 
 ## 八. Notes for JVM
 
-* JVM 内存分区与内存溢出异常
+* [JVM 内存分区与内存溢出异常](https://github.com/wuchangfeng/BlogRes/blob/master/Notes%20for%20JVM/JVM%E5%86%85%E5%AD%98%E5%88%86%E5%8C%BA.md)
 
   * 运行时数据区域即内存分区
     * 程序计数器
@@ -195,33 +202,34 @@
     * 直接内存
 
 
-  * 对象的创建
-  * 内存**溢出**
+* 对象的创建
+* 内存**溢出**
     * Java 堆溢出
     * 虚拟机栈和本地方法栈溢出
     * 方法区和运行时常量池溢出
     * 本机直接内存溢出
 
-* 垃圾回收算法
+* [垃圾回收算法](https://github.com/wuchangfeng/BlogRes/blob/master/Notes%20for%20JVM/%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6%E7%AE%97%E6%B3%95.md)
 
-  * 垃圾回收的概念
-  * 如何判断对象为垃圾
-  * 垃圾回收算法的实现思想
-  * 如何给对象分配内存
+    * 垃圾回收的概念
+    * 如何判断对象为垃圾
+    * 垃圾回收算法的实现思想
+    * 如何给对象分配内存
 
-* 类加载机制
-  * 类加载时机
-  * 类加载过程
-  * 类加载器
+* [类加载机制](https://github.com/wuchangfeng/BlogRes/blob/master/Notes%20for%20JVM/%E7%B1%BB%E5%8A%A0%E8%BD%BD%E6%9C%BA%E5%88%B6.md)
+    * 类加载时机
+    * 类加载过程
+    * [类加载机制之双亲委派模型](https://github.com/wuchangfeng/BlogRes/blob/master/Notes%20for%20JVM/%E7%B1%BB%E5%8A%A0%E8%BD%BD%E6%9C%BA%E5%88%B6%E4%B9%8B%E5%8F%8C%E4%BA%B2%E5%A7%94%E6%B4%BE%E6%A8%A1%E5%9E%8B.md)
+    * 类加载器
 
 * 类文件结构
 
 * Java 内存模型与线程
 
 * Java 语法糖
-  * 泛型与类型擦除
-  * 自动拆箱与装箱与遍历循环
-  * 条件编译
+    * 泛型与类型擦除
+    * 自动拆箱与装箱与遍历循环
+    * 条件编译
 
 ## 九. Links for Open Source Framework
 
