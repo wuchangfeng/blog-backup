@@ -1,8 +1,4 @@
-### 
-
-## 零. Notes for Effective Java
-
-读 Effective Java 的笔记(阅读中)
+学习时候,所做的一些笔记。方便之后复习查阅。
 
 ## 一. Notes for Algortihms
 
@@ -93,6 +89,26 @@
 - [Arts-Development-of-Android-12](https://github.com/wuchangfeng/BlogRes/blob/master/Notes%20for%20Arts%20of%20Android%20Dev/Arts-Development-of-Android-12.md)
 
   本章介绍 Bitmap 的加载优化以及 Cache 相关内容。
+
+- Arts-Development-of-Android-1
+
+  本章介绍生命周期和启动模式概念。
+
+- Arts-Development-of-Android-2
+
+  本章介绍 Android 中 IPC 相关概念。
+
+- Arts-Development-of-Android-4
+
+  本章介绍 Remote Views 的相关概念与应用。
+
+- Arts-Development-of-Android-6
+
+  本章深入介绍 Android 中的 Drawable
+
+- Arts-Development-of-Android-9
+
+  本章介绍 Android 中四大组件工作过程。
 
 ## 四. Notes for Design Pattern
 
@@ -236,3 +252,28 @@
 * EventBus3.0 框架源码解析
 * Glide 框架源码解析
 * Retrofit 框架源码解析
+
+## 十. Notes for Effective Java
+
+- 创建和销毁对象
+  - 用静态工厂方法替代构造器
+  - 构造器参数较多时候，考虑用构建器
+  - 用私有构造器或者枚举类型强化 Singleton 属性
+  - 通过私有构造器强化类不可实例化能力
+  - 避免创建不必要的对象
+  - 消除过期的对象引用
+  - 避免使用终结方法
+- 对于所有对象都通用的方法 
+  - 覆盖 Equals 时请遵守通用约定
+  - 覆盖 Equals 时总要覆盖 HashCode
+  - 始终要覆盖 toString
+  - 谨慎的覆盖 clone
+  - 考虑实现 Comparable 接口
+- 类和接口
+- 泛型
+- 枚举和注解
+- 方法
+- 通用程序设计
+- 并发
+- 异常
+- 序列化
