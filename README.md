@@ -185,11 +185,31 @@
 
 * [ ArrayList 的源码解析](https://github.com/wuchangfeng/BlogRes/blob/master/Notes%20for%20Java%20se/java-arraylist.md)
 
+  ArrayList 是 List 中比较经常用到的了。和Vector不同，**ArrayList中的操作不是线程安全的**！ArryList 底层基于数组队列，其最大特点即为动态扩容机制。
+
+
 * [ LinkedList 的源码解析](https://github.com/wuchangfeng/BlogRes/blob/master/Notes%20for%20Java%20se/java-linkedlist.md)
+
+  LinkedList 是List 接口链表的实现。底层基于双向链表实现的方式使得 LinkedList 在插入和删除时更优于ArrayList，而随机访问则比 ArrayList 逊色些。
+
 
 * [LinkedHashMap 的源码解析](https://github.com/wuchangfeng/BlogRes/blob/master/Notes%20for%20Java%20se/java-linkedhashmap.md)
 
+  * 相对于 HashMap 的**无序**而言，LinkedHashMap 的输出会按照 **一定的顺序**。
+
+
+  * LinkedHashMap 由于其自身的结构特点，非常适合于决定元素的快速访问与缓存淘汰问题。
+
+
+  * LinkedHashMap 内部有一个环形双链表在维持元素的顺序,因此其遍历顺序相对 HashMap 来讲较慢。
+
+
+  * LinkedHashMap 具有同版本 HashMap 的一些特性。如内部基本构造皆为:数组,链表,红黑树。
+
 * [TreeMap 的源码解析](https://github.com/wuchangfeng/BlogRes/blob/master/Notes%20for%20Java%20se/java-treemap.md)
+
+  TreeMap 也只是粗略的看了一看。其实现了 SortedMap 接口，TreeMap 其实就是一个红黑树结构，每个 key-value 都可以看做是一个节点，节点根据 **key** 进行排序。TreeMap 可以保证所有的 key-value 处于有序状态。
+
 
 * [ConcurrentHashMap 实现原理](http://wiki.jikexueyuan.com/project/java-collection/concurrenthashmap.html)
 
