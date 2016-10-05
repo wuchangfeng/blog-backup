@@ -182,6 +182,9 @@
 * [ LinkedList 的源码解析](https://github.com/wuchangfeng/BlogRes/blob/master/Notes%20for%20Java%20se/java-linkedlist.md)
 * [LinkedHashMap 的源码解析](https://github.com/wuchangfeng/BlogRes/blob/master/Notes%20for%20Java%20se/java-linkedhashmap.md)
 * [TreeMap 的源码解析](https://github.com/wuchangfeng/BlogRes/blob/master/Notes%20for%20Java%20se/java-treemap.md)
+* [ConcurrentHashMap 实现原理](http://wiki.jikexueyuan.com/project/java-collection/concurrenthashmap.html)
+* [ArrayMap 实现原理](http://yydcdut.com/2016/06/05/arraymap-analyse/)
+* [SparseArray 实现原理](http://extremej.itscoder.com/sparsearray_source_analyse/)
 
 ## 六. Notes for Linux C
 
@@ -209,13 +212,7 @@
 * [JVM 内存分区与内存溢出异常](https://github.com/wuchangfeng/BlogRes/blob/master/Notes%20for%20JVM/JVM%E5%86%85%E5%AD%98%E5%88%86%E5%8C%BA.md)
 
   * 运行时数据区域即内存分区
-    * 程序计数器
-    * Java 虚拟机栈
-    * 本地方法栈
-    * Java 堆
-    * 方法区
-    * 运行时常量池
-    * 直接内存
+  * 内存溢出尝试
 
 
 * 对象的创建
@@ -252,23 +249,12 @@
 * EventBus3.0 框架源码解析
 * Glide 框架源码解析
 * Retrofit 框架源码解析
+* [开源选型之 Android 三大图片缓存原理、特性对比](http://mp.weixin.qq.com/s?__biz=MzAxNjI3MDkzOQ==&mid=400056342&idx=1&sn=894325d70f16a28bfe8d6a4da31ec304&scene=2&srcid=10210byVbMGLHg7vXUJLgHaR&from=timeline&isappinstalled=0#rd)
 
 ## 十. Notes for Effective Java
 
 - 创建和销毁对象
-  - 用静态工厂方法替代构造器
-  - 构造器参数较多时候，考虑用构建器
-  - 用私有构造器或者枚举类型强化 Singleton 属性
-  - 通过私有构造器强化类不可实例化能力
-  - 避免创建不必要的对象
-  - 消除过期的对象引用
-  - 避免使用终结方法
 - 对于所有对象都通用的方法 
-  - 覆盖 Equals 时请遵守通用约定
-  - 覆盖 Equals 时总要覆盖 HashCode
-  - 始终要覆盖 toString
-  - 谨慎的覆盖 clone
-  - 考虑实现 Comparable 接口
 - 类和接口
 - 泛型
 - 枚举和注解

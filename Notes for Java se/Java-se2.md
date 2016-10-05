@@ -34,28 +34,28 @@ categories: About Java
 
 * 继承 Thread 类创建线程类
 
- * 定义 Thread **子类**，并且重写 Run 方法，里面的执行体代表线程要完成的任务。
- * 创建Thread 子类的实例，即创建了线程对象。
- * 调用线程对象的 start() 方法来启动线程。
+* 定义 Thread **子类**，并且重写 Run 方法，里面的执行体代表线程要完成的任务。
+* 创建Thread 子类的实例，即创建了线程对象。
+* 调用线程对象的 start() 方法来启动线程。
 
 注意一点 main() 方法的体代表主线程的执行体。 由于比较简单，实例略。并且由于不是在同一个进程中创建这些线程，故而线程之间并不是共享实例变量。
 
 * 实现 Runnable 接口创建线程类
 
- * 定义 Runable **接口实现类**，并且重写 run() 方法。
- * 创建 Runable 实现类的实例，并且以此实例作为 Thread 的target 来创建 Thread 对象，该对象才是真正的线程对象。
- * 最后调用start() 方法来启动线程。
- 
+* 定义 Runable **接口实现类**，并且重写 run() 方法。
+* 创建 Runable 实现类的实例，并且以此实例作为 Thread 的target 来创建 Thread 对象，该对象才是真正的线程对象。
+* 最后调用start() 方法来启动线程。
+
 注意，这里多个线程是共享一个target的，共享变量。 
 
 * 使用 Callable 和 Furture 创建线程
-    
+
 ``` java
 public class CallableThread {
     	public static void main(String[] args) {
 
         CallableThread ct = new CallableThread();
-
+		// 第一种写法
         FutureTask<Integer> task = new FutureTask<Integer>((Callable<Integer>) ()->{
             int i;
             for ( i = 0; i < 100 ; i++) {
@@ -64,8 +64,7 @@ public class CallableThread {
             return i;
         });
         
-        //另一种写法
-        
+        // 另一种写法        
         FutureTask<Integer> task1 = new FutureTask<Integer>(new Callable<Integer>() {
             @Override
             public Integer call() throws Exception {
@@ -135,13 +134,13 @@ Future接口提供了如下方法：
 获得 Cpu 即处于运行状态，执行线程方法体。
 
 * 阻塞
-  
+
  线程 sleep(),主动放弃所占有资源
 
  线程调用了一个阻塞式Io方法，在该方法返回时，处于阻塞。
 
  线程在等待某个通知 notify()
- 
+
  程序将线程挂起
 
  线程试图获得同步监视器，但是其被其他线程所占有。  
@@ -149,11 +148,11 @@ Future接口提供了如下方法：
 
 
 * 死亡
- 
+
  run() 或者 call() 方法执行完毕，正常结束。
- 
+
  线程抛出一个未捕获的异常。
- 
+
  直接调用线程的 stop() 来结束，容易导致死锁，不推荐。
 
 ### 2. 线程控制
@@ -165,13 +164,13 @@ Future接口提供了如下方法：
 * 后台线程
 
 守护进程，关键词：
-	
+​	
 	thread.setDaemon();
 
 * 线程睡眠(sleep) 
 
 让当前线程暂停一段时间，并进入**阻塞状态**，可以通过 Thread 的静态方法 sleep() 实现。
-  
+
 * 线程让步(yield)
 
 同样也是让当前线程暂停一段时间，但是其处于**就绪状态**，让系统的线程调度器重新调度一次。
@@ -344,7 +343,7 @@ private final ReentrantLock lock = new ReentrantLock();
 * 传统的线程通信
 
 可借助于 Object 类的 wait(),notify()和notifyAll()三个方法，三个方法不属于 Thread 类，而属于 Object类，但这三个方法必须由同步监视器来调用，可分为两种：
-  
+
    1： 使用 Synchronized 修饰的同步方法 ，该类默认实例(this)就是同步监视器，可以直接调用。
 
    2： 对于 Synchronized 修饰的同步代码块，其括号里面的就是同步监视器，用其调用即可。  
@@ -559,7 +558,7 @@ class Accouts{
 * 使用阻塞队列控制线程通信
 
  java5 提供了一个 BlockingQueue 接口，其作为线程同步的工具：当生产者视图向 BQ 放入元素时，如果队列已满，则被阻塞，当消费者线程试图取数据时，如果队列已空，则被阻塞。一个简单的实例代码如下：
-	
+​	
 ``` java
 public class BlockingQueueTest {
 public static void main(String args[]) 
@@ -584,13 +583,13 @@ public static void main(String args[])
 
 使用 Executors 工厂类产生线程池，包含以下几个静态工厂方法来创建线程池：
 
- * newCachedThreadPool():
- * newFixedThreadPool(int nThreads):
- * newSingleThreadExcutor():
- * newScheduledThreadPool(int corePoolSize):
- * newSingleThreadScheduledExecutor():
- * ExecutorService new workStealingpool(int parallelism):
- * ExecutorService newWorkStealingPool():
+* newCachedThreadPool():
+* newFixedThreadPool(int nThreads):
+* newSingleThreadExcutor():
+* newScheduledThreadPool(int corePoolSize):
+* newSingleThreadScheduledExecutor():
+* ExecutorService new workStealingpool(int parallelism):
+* ExecutorService newWorkStealingPool():
 
 
 前三个方法返回一个 ExecutorService 对象，一个线程池，可以执行 Runnable/Callable 对象所代表的线程；中间的是 ExecutorService 子类即 ThreadScheduledExecutorService 线程池，可以指定延迟后执行线程任务；最后的两个是 Java 8 新增加的，可以充分利用多核 CPU 的威力。
@@ -744,7 +743,7 @@ class Accout {
 ArrayList,LinkedList,HashSet,TreeSet,HashMap,TreeMap,都是**线程不安全的**,即线程并发对集合进行操作时，会不安全。可以使用 Collections 提供的类方法把这些集合包装成线程安全的集合。
 
  1： <T>Collection<T>synchronizedCollection(Collection<T> c):返回指定的 collection 对应的线程安全的 collection。
- 
+
 可以参见疯狂 java 讲义 P758.
 
 如在多线程中，使用线程安全的 HashMap 对象：
