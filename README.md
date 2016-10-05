@@ -174,17 +174,46 @@
 ## 五. Notes for Java Se
 
 * [Java 集合框架](https://github.com/wuchangfeng/BlogRes/blob/master/Notes%20for%20Java%20se/Java-se1.md)
+
 * [Java 多线程-重点](https://github.com/wuchangfeng/BlogRes/blob/master/Notes%20for%20Java%20se/Java-se2.md)
+
 * [Java 泛型深入](https://github.com/wuchangfeng/BlogRes/blob/master/Notes%20for%20Java%20se/Java-se3.md)
+
 * [Java NIO 的学习-未深入](https://github.com/wuchangfeng/BlogRes/blob/master/Notes%20for%20Java%20se/Java-se7.md)
+
 * [Java 注解](https://github.com/wuchangfeng/BlogRes/blob/master/Notes%20for%20Java%20se/java-annotation.md)
+
 * [ ArrayList 的源码解析](https://github.com/wuchangfeng/BlogRes/blob/master/Notes%20for%20Java%20se/java-arraylist.md)
+
 * [ LinkedList 的源码解析](https://github.com/wuchangfeng/BlogRes/blob/master/Notes%20for%20Java%20se/java-linkedlist.md)
+
 * [LinkedHashMap 的源码解析](https://github.com/wuchangfeng/BlogRes/blob/master/Notes%20for%20Java%20se/java-linkedhashmap.md)
+
 * [TreeMap 的源码解析](https://github.com/wuchangfeng/BlogRes/blob/master/Notes%20for%20Java%20se/java-treemap.md)
+
 * [ConcurrentHashMap 实现原理](http://wiki.jikexueyuan.com/project/java-collection/concurrenthashmap.html)
+
+  ConcurrentHashMap 是一个并发散列映射表的实现，它允许完全并发的读取，并且支持给定数量的并发更新。相比于 HashTable 和用同步包装器包装的 HashMap（Collections.synchronizedMap(new HashMap())），ConcurrentHashMap 拥有更高的并发性。
+
+
 * [ArrayMap 实现原理](http://yydcdut.com/2016/06/05/arraymap-analyse/)
+
+  ArrayMap 根本不是哈希表，其实就是一个二叉查找树。有两个数组：key 的 hash 值数组，与对象数组的 key 索引对应，该数组用于二分查找；对象数组，存储真正的键值对，偶数索引是 key ，奇数索引是 value。
+
+
 * [SparseArray 实现原理](http://extremej.itscoder.com/sparsearray_source_analyse/)
+
+  是用来一定程度上替代 `HashMap` 的，`SparseArray`从名字上看就能猜到跟数组有关系，事实上他底层是两条数组，一组存放`key`，一组存放`value`。
+
+* [Java 并发编程](http://wiki.jikexueyuan.com/project/java-concurrency/)
+
+  Java 并发编程还是比较重要的，在这一章我们可以学习到许多并发编程相关的概念。粗略介绍一下：其实并发编程主要涉及的还是 Java 中多线程的知识，如果去深入，我们学习的知识点肯定要包括不限于以下几点：线程的基本概念、线程间的协作、Volatile 和 Synchronized 关键字以及一些并发编程的特性。
+
+* [深入理解 Java 内存模型](http://wiki.jikexueyuan.com/project/java-memory-model/)
+
+  这一节是并发编程的基础，还没怎么认真看。
+
+  ​
 
 ## 六. Notes for Linux C
 
@@ -240,7 +269,7 @@
 * Java 内存模型与线程
 
 * Java 语法糖
-    * 泛型与类型擦除
+    * [泛型与类型擦除](http://wiki.jikexueyuan.com/project/java-vm/syntactic-sugar.html)
     * 自动拆箱与装箱与遍历循环
     * 条件编译
 
