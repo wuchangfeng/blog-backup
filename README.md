@@ -8,7 +8,7 @@
 - [找出两个有序数组的交集 -16/8/16](https://github.com/wuchangfeng/BlogRes/blob/master/Notes%20for%20Algortihms/algorithm-for-offer3.md)
 - [在有序的二维数组中的找出指定的数-16/8/17](https://github.com/wuchangfeng/BlogRes/blob/master/Notes%20for%20Algortihms/algorithm-for-offer4.md)
 - [找出一个字符串中第一个不重复的字符-16/8/17](https://github.com/wuchangfeng/BlogRes/blob/master/Notes%20for%20Algortihms/algorithm-for-offer5.md)
-- 将字符串中的空格替换成指定字符
+- [将字符串中的空格替换成指定字符-16/10/15](https://github.com/wuchangfeng/BlogRes/blob/master/Notes%20for%20Algortihms/algorithm-for-offer33.md)
 - [用两个栈实现队列-16/8/31](https://github.com/wuchangfeng/BlogRes/blob/master/Notes%20for%20Algortihms/algorithm-for-offer15.md)
 - [求链表中倒数第 K 个节点-16/8/20](https://github.com/wuchangfeng/BlogRes/blob/master/Notes%20for%20Algortihms/algorithm-for-offer6.md)
 - [求在数组中连续项和最大的值-16/8/20](https://github.com/wuchangfeng/BlogRes/blob/master/Notes%20for%20Algortihms/algorithm-for-offer7.md)
