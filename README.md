@@ -1,4 +1,4 @@
-学习时候,所做的一些笔记。方便之后复习查阅。
+学习时候,所做的一些笔记。方便之后复习查阅。Happy learning,Happy Coding.
 
 ## 一. Notes for Algortihms
 
@@ -183,6 +183,8 @@
 
 * [Java 注解](https://github.com/wuchangfeng/BlogRes/blob/master/Notes%20for%20Java%20se/java-annotation.md)
 
+  学习 Java 注解的基本概念应用。继续学习自定义注解以及利用反射获取自定义注解的相关信息。
+
 * [ ArrayList 的源码解析](https://github.com/wuchangfeng/BlogRes/blob/master/Notes%20for%20Java%20se/java-arraylist.md)
 
   ArrayList 是 List 中比较经常用到的了。和Vector不同，**ArrayList中的操作不是线程安全的**！ArryList 底层基于数组队列，其最大特点即为动态扩容机制。
@@ -198,17 +200,17 @@
   * 相对于 HashMap 的**无序**而言，LinkedHashMap 的输出会按照 **一定的顺序**。
 
 
-  * LinkedHashMap 由于其自身的结构特点，非常适合于决定元素的快速访问与缓存淘汰问题。
+* LinkedHashMap 由于其自身的结构特点，非常适合于决定元素的快速访问与缓存淘汰问题。
 
 
-  * LinkedHashMap 内部有一个环形双链表在维持元素的顺序,因此其遍历顺序相对 HashMap 来讲较慢。
+* LinkedHashMap 内部有一个环形双链表在维持元素的顺序,因此其遍历顺序相对 HashMap 来讲较慢。
 
 
-  * LinkedHashMap 具有同版本 HashMap 的一些特性。如内部基本构造皆为:数组,链表,红黑树。
+*   LinkedHashMap 具有同版本 HashMap 的一些特性。如内部基本构造皆为:数组,链表,红黑树。
 
-* [TreeMap 的源码解析](https://github.com/wuchangfeng/BlogRes/blob/master/Notes%20for%20Java%20se/java-treemap.md)
+*   [TreeMap 的源码解析](https://github.com/wuchangfeng/BlogRes/blob/master/Notes%20for%20Java%20se/java-treemap.md)
 
-  TreeMap 也只是粗略的看了一看。其实现了 SortedMap 接口，TreeMap 其实就是一个红黑树结构，每个 key-value 都可以看做是一个节点，节点根据 **key** 进行排序。TreeMap 可以保证所有的 key-value 处于有序状态。
+    TreeMap 也只是粗略的看了一看。其实现了 SortedMap 接口，TreeMap 其实就是一个红黑树结构，每个 key-value 都可以看做是一个节点，节点根据 **key** 进行排序。TreeMap 可以保证所有的 key-value 处于有序状态。
 
 
 * [ConcurrentHashMap 实现原理](http://wiki.jikexueyuan.com/project/java-collection/concurrenthashmap.html)
@@ -264,7 +266,6 @@
   * 内存溢出尝试
 
 
-* 对象的创建
 * 内存**溢出**
     * Java 堆溢出
     * 虚拟机栈和本地方法栈溢出
