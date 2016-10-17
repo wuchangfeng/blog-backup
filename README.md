@@ -17,8 +17,8 @@
 - [判断链表中是否有环-16/8/25](https://github.com/wuchangfeng/BlogRes/blob/master/Notes%20for%20Algortihms/algorithm-for-offer10.md)
 - [找到链表的中间节点-16/8/25](https://github.com/wuchangfeng/BlogRes/blob/master/Notes%20for%20Algortihms/algorithm-for-offer11.md)
 - [不用加减乘除做加法[重点位运算]-16/9/1](https://github.com/wuchangfeng/BlogRes/blob/master/Notes%20for%20Algortihms/algorithm-for-offer16.md)
-- 重建二叉树
-- 旋转数组的最小数字
+- [根据前序和中序遍历重建出二叉树-16/10/14](https://github.com/wuchangfeng/BlogRes/blob/master/Notes%20for%20Algortihms/algorithm-for-offer34.md)
+- [旋转数组的最小数字[二分查找结合旋转数组的特性]-16/10/17](https://github.com/wuchangfeng/BlogRes/blob/master/Notes%20for%20Algortihms/algorithm-for-offer36.md)
 - [斐波那契数列-16/9/11](https://github.com/wuchangfeng/BlogRes/blob/master/Notes%20for%20Algortihms/algorithm-for-offer27.md)
 - [二进制中 1 的个数-16/9/12](https://github.com/wuchangfeng/BlogRes/blob/master/Notes%20for%20Algortihms/algorithm-for-offer28.md)
 - [数值的整数次方-16/10/16--测试结果有点问题](https://github.com/wuchangfeng/BlogRes/blob/master/Notes%20for%20Algortihms/algorithm-for-offer34.md)
@@ -32,7 +32,6 @@
 - 数组中出现次数超过一半的数字
 - [二叉树的深度[递归解法]-16/9/2](https://github.com/wuchangfeng/BlogRes/blob/master/Notes%20for%20Algortihms/algorithm-for-offer18.md)
 - 链表中环的入口节点
-- 删除二叉树中重复的节点
 - [扑克牌的顺子-16/9/27](https://github.com/wuchangfeng/BlogRes/blob/master/Notes%20for%20Algortihms/algorithm-for-offer32.md)
 - 树中两个节点的最低公共祖先
 - [判断是否为平衡二叉树-解法一16/9/3](https://github.com/wuchangfeng/BlogRes/blob/master/Notes%20for%20Algortihms/algorithm-for-offer19.md)
@@ -266,24 +265,25 @@
     * 虚拟机栈和本地方法栈溢出
     * 方法区和运行时常量池溢出
     * 本机直接内存溢出
-
+* [Java 中的内存泄漏](https://github.com/GeniusVJR/LearningNotes/blob/master/Part2/JavaSE/Java%E4%B8%AD%E7%9A%84%E5%86%85%E5%AD%98%E6%B3%84%E6%BC%8F.md)
+    * **静态集合类**引起内存泄漏
+    * 当集合里面的对象属性被修改后，再调用remove()方法时不起作用
+    * 监听器和各种连接
+    * 内部类和外部模块的引用
+    * **单例模式**持有外部实例的引用
 * [垃圾回收算法](https://github.com/wuchangfeng/BlogRes/blob/master/Notes%20for%20JVM/%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6%E7%AE%97%E6%B3%95.md)
 
     * 垃圾回收的概念
     * 如何判断对象为垃圾
     * 垃圾回收算法的实现思想
     * 如何给对象分配内存
-
 * [类加载机制](https://github.com/wuchangfeng/BlogRes/blob/master/Notes%20for%20JVM/%E7%B1%BB%E5%8A%A0%E8%BD%BD%E6%9C%BA%E5%88%B6.md)
     * 类加载时机
     * 类加载过程
     * [类加载机制之双亲委派模型](https://github.com/wuchangfeng/BlogRes/blob/master/Notes%20for%20JVM/%E7%B1%BB%E5%8A%A0%E8%BD%BD%E6%9C%BA%E5%88%B6%E4%B9%8B%E5%8F%8C%E4%BA%B2%E5%A7%94%E6%B4%BE%E6%A8%A1%E5%9E%8B.md)
     * 类加载器
-
 * 类文件结构
-
 * Java 内存模型与线程
-
 * Java 语法糖
     * [泛型与类型擦除](http://wiki.jikexueyuan.com/project/java-vm/syntactic-sugar.html)
     * 自动拆箱与装箱与遍历循环
@@ -291,9 +291,10 @@
 
 ## 九. Links for Open Source Framework
 
-* EventBus3.0 框架源码解析
+* [EventBus3.0 框架源码解析](https://zhuanlan.zhihu.com/p/20871335)
 * Glide 框架源码解析
 * Retrofit 框架源码解析
+* [ButterKnife 框架源码解析](https://zhuanlan.zhihu.com/p/21628698)
 * [开源选型之 Android 三大图片缓存原理、特性对比](http://mp.weixin.qq.com/s?__biz=MzAxNjI3MDkzOQ==&mid=400056342&idx=1&sn=894325d70f16a28bfe8d6a4da31ec304&scene=2&srcid=10210byVbMGLHg7vXUJLgHaR&from=timeline&isappinstalled=0#rd)
 
 ## 十. Notes for Effective Java
