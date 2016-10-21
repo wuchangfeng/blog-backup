@@ -22,7 +22,7 @@
 - [斐波那契数列-16/9/11](https://github.com/wuchangfeng/BlogRes/blob/master/Notes%20for%20Algortihms/algorithm-for-offer27.md)
 - [二进制中 1 的个数-16/9/12](https://github.com/wuchangfeng/BlogRes/blob/master/Notes%20for%20Algortihms/algorithm-for-offer28.md)
 - [数值的整数次方-16/10/16--测试结果有点问题](https://github.com/wuchangfeng/BlogRes/blob/master/Notes%20for%20Algortihms/algorithm-for-offer34.md)
-- 打印 1 到 n 的中间数
+- [打印 1 到 n 的中间数-16/10/21--**大数如何表示**](https://github.com/wuchangfeng/BlogRes/blob/master/Notes%20for%20Algortihms/algorithm-for-offer37.md)
 - [在 o(1) 时间删除链表节点-16/8/26](https://github.com/wuchangfeng/BlogRes/blob/master/Notes%20for%20Algortihms/algorithm-for-offer13.md)
 - [调整数组顺序使得奇数位于偶数前面[扩展性强]-16/8/29](https://github.com/wuchangfeng/BlogRes/blob/master/Notes%20for%20Algortihms/algorithm-for-offer14.md)
 - 树的子结构
