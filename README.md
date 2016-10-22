@@ -29,7 +29,7 @@
 - 顺时针打印链表矩阵
 - [栈的压入，弹出序列是否相匹配-16/9/1](https://github.com/wuchangfeng/BlogRes/blob/master/Notes%20for%20Algortihms/algorithm-for-offer17.md)
 - [从上往下打印二叉树[层次遍历]-16/9/4](https://github.com/wuchangfeng/BlogRes/blob/master/Notes%20for%20Algortihms/algorithm-for-offer20.md)
-- 数组中出现次数超过一半的数字
+- [数组中出现次数超过一半的数字-16/10/22](https://github.com/wuchangfeng/BlogRes/blob/master/Notes%20for%20Algortihms/algorithm-for-offer38.md)
 - [二叉树的深度[递归解法]-16/9/2](https://github.com/wuchangfeng/BlogRes/blob/master/Notes%20for%20Algortihms/algorithm-for-offer18.md)
 - 链表中环的入口节点
 - [扑克牌的顺子-16/9/27](https://github.com/wuchangfeng/BlogRes/blob/master/Notes%20for%20Algortihms/algorithm-for-offer32.md)
