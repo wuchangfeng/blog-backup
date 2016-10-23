@@ -25,7 +25,7 @@
 - [打印 1 到 n 的中间数-16/10/21--**大数如何表示**](https://github.com/wuchangfeng/BlogRes/blob/master/Notes%20for%20Algortihms/algorithm-for-offer37.md)
 - [在 o(1) 时间删除链表节点-16/8/26](https://github.com/wuchangfeng/BlogRes/blob/master/Notes%20for%20Algortihms/algorithm-for-offer13.md)
 - [调整数组顺序使得奇数位于偶数前面[扩展性强]-16/8/29](https://github.com/wuchangfeng/BlogRes/blob/master/Notes%20for%20Algortihms/algorithm-for-offer14.md)
-- 树的子结构
+- [树的子结构-16/10/23--**代码的鲁棒性**](https://github.com/wuchangfeng/BlogRes/blob/master/Notes%20for%20Algortihms/algorithm-for-offer38.md)
 - 顺时针打印链表矩阵
 - [栈的压入，弹出序列是否相匹配-16/9/1](https://github.com/wuchangfeng/BlogRes/blob/master/Notes%20for%20Algortihms/algorithm-for-offer17.md)
 - [从上往下打印二叉树[层次遍历]-16/9/4](https://github.com/wuchangfeng/BlogRes/blob/master/Notes%20for%20Algortihms/algorithm-for-offer20.md)
