@@ -1,4 +1,4 @@
-学习时候,所做的一些笔记。方便之后复习查阅。Happy learning,Happy Coding.
+学习时候,所做的一些笔记。方便之后复习查阅。
 
 ## 一. Notes for Algortihms
 
