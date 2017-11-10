@@ -1,19 +1,14 @@
 ---
-title: 状态模式
+title: 设计模式之状态模式
 date: 2016-05-02 18:52:27
 tags: design-pattern
 categories: About Java
 ---
 
-Head first 设计模式-状态模式
-
-
-通常性的我们喜欢利用 if... else if... else 或者 switch...case...来进行状态的切换，在状态类型较少或者简单的情况下这样可以达到一些我们想要的目的，但是一旦状态判断复杂或者增加了新的状态，这样的判断就显得非常不好了。 
+通常的我们喜欢利用 if... else if... else 或者 switch...case...来进行状态的切换，在状态类型较少或者简单的情况下这样可以达到一些我们想要的目的，但是一旦状态判断复杂或者增加了新的状态，这样的判断就显得非常不好了,明显违背了设计模式的原则-封装和开闭原则。 
 
 较多情况下**对象往往会根据自身的状态来决定自身表现的行为**，这些状态都在对象内部定义好了的。
 
-
-<!-- more -->
 
 ### 一 . 资料阅读
 
@@ -22,7 +17,7 @@ Head first 设计模式-状态模式
 
 ### 二 . 场景引入
 
-就是地下这个游戏，简单明了
+下面这个游戏，简单明了的讲解了状态模式
 
 ![](http://7xrl8j.com1.z0.glb.clouddn.com/%E7%8A%B6%E6%80%81%E6%A8%A1%E5%BC%8F2.jpg)
 
@@ -31,8 +26,10 @@ Head first 设计模式-状态模式
 
 ![](http://7xrl8j.com1.z0.glb.clouddn.com/UML_state.jpg)
 
-### 四 . 实例代码
+### 四 . 实例展示
 
+
+首先有一个糖果机类，有四种状态：
 ``` java
 public class GumballMachine {
  
@@ -83,7 +80,6 @@ public class GumballMachine {
 		}
 	}
 
-
     /**
 	 * 转动转轴
 	 */
@@ -128,28 +124,6 @@ public class GumballMachine {
 		this.count = numGumBalls;
 		state = NO_QUARTER;
 	}
-
-	public String toString() {
-		StringBuffer result = new StringBuffer();
-		result.append("\nMighty Gumball, Inc.");
-		result.append("\nJava-enabled Standing Gumball Model #2004\n");
-		result.append("Inventory: " + count + " gumball");
-		if (count != 1) {
-			result.append("s");
-		}
-		result.append("\nMachine is ");
-		if (state == SOLD_OUT) {
-			result.append("sold out");
-		} else if (state == NO_QUARTER) {
-			result.append("waiting for quarter");
-		} else if (state == HAS_QUARTER) {
-			result.append("waiting for turn of crank");
-		} else if (state == SOLD) {
-			result.append("delivering a gumball");
-		}
-		result.append("\n");
-		return result.toString();
-	}
 }
 ```
 
@@ -177,7 +151,6 @@ public class GumballMachine {
 
 ``` java
 public interface State {
- 
 	public void insertQuarter();
 	public void ejectQuarter();
 	public void turnCrank();
@@ -359,7 +332,6 @@ public class GumballMachine {
 ```
 
 测试程序
-
 ``` java
 public class GumballMachineTestDrive {
 
@@ -393,14 +365,14 @@ public class GumballMachineTestDrive {
 }
 ```
 
-### 七 . 分析总结
+### 七 . 状态模式的优缺点
 
 **状态模式**：允许对象在内部状态改变时改变它的行为，对象看起来好像修改了它的类。
 这个模式将状态封装成为独立的类，并将动作委托到代表当前状态的对象，我们知道行为会随着内部状态的改变而改变。糖果机提供了一个很好的例子：当糖果机是在 NoQuarterState 和 HasQuarterState 两种不同状态时，你投入 25 分钱，就会得到不同的行为。并且我们通过使用组合
 
 **一个类，一个责任**：之所以不让 SoldState 直接发放两颗糖果，而设置 WinnerState ，是因为完全遵守一个类一个责任，假设将发放两颗糖果的代码放在 SoldState 中，确实可以解决当前问题，但是一旦促销方案改变或者促销结束，如果要做一些改动是非常麻烦的。
 
-### 八 . VS 策略模式
+### 八 . 状态模式与策略模式比较
 
 * 以状态模式而言，将一群行为封装在状态对象中，context 的行为可以随时委托到那些状态对象中的一个。随着时间的流式，当前状态在状态对象集合中游走改变，以反映出 context 内部的状态，因此 context 状态也会跟着改变，而客户不知道这一切。
 
